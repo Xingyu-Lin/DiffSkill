@@ -1,0 +1,55 @@
+SIMULATOR:
+  E: 5000.
+  n_particles: 10000
+  yield_stress: 50.
+  ground_friction: 1.5
+  gravity: (0, -10, 0)
+  quality: 1
+SHAPES:
+  - shape: scatter
+    pos_min: (0.33, 0.02, 0.43)
+    pos_max: (0.47, 0.05, 0.57)
+    color: (0.7568, 0.6039, 0.4196)
+PRIMITIVES:
+  - shape: Box # Scraper
+    size: (0.015, 0.1, 0.07) # To make rendering realistic. Actual floor is higher than the rendered
+    init_pos: (0.2, 0.05, 0.5)
+    init_rot: (0.707, 0.707, 0., 0.)
+    color: (0.7568, 0.6039, 0.4196)
+    friction: 0.9
+    action:
+      dim: 6
+      scale: (0.015, 0.0, 0.015, 0.0, 0.1, 0.0) # restrict the movement on the vertical direction
+  - shape: Box # Lifter
+    size: (0.06, 0.05, 0.015) # To make rendering realistic. Actual floor is higher than the rendered
+    init_pos: (0.4, 0.02, 0.8)
+    init_rot: (0.707, 0.707, 0., 0.)
+    color: (0.7568, 0.6039, 0.4196)
+    friction: 5.
+    action:
+      dim: 6
+      scale: (0.015, 0.015, 0.015, 0.0, 0., 0.0)
+  - shape: Box # Obstacle
+    size: (0.13, 0.2, 0.03) # To make rendering realistic. Actual floor is higher than the rendered
+    init_pos: (0.68, 0.05, 0.5)
+    init_rot: (0.707, 0.707, 0., 0.)
+    color: (0.5, 0.5, 0.5)
+    friction: 0.9
+    action:
+      dim: 6
+      scale: (0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
+ENV:
+  loss:
+#    target_path: ../datasets/0816_GatherMove/target
+     target_path: ../datasets/0706_PushSpread/target
+
+
+RENDERER:
+  name: tina
+  cam_center: (0.5, 0., 0.5)
+  cam_theta: 0.
+  cam_phi: -0.85
+  cam_radius: 0.88
+  tina_img_res: 512
+  use_directional_light: True
+  light_direction: (0., 1., 1.)

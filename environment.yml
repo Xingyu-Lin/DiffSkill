@@ -1,0 +1,27 @@
+name: plb
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - numpy=1.21.1
+  - torch=1.9.0
+  - torchvision
+  - cudatoolkit=10.2
+  - pip:
+    - joblib
+    - gym==0.14.0
+    - moviepy
+    - opencv-python
+    - geomloss
+    - matplotlib
+    - transforms3d
+    - python-dateutil
+    - cloudpickle
+    - pyyaml
+    - yacs
+    - sklearn
+    - taichi==0.7.26
+    - pyquternion
+    - transformations
+    - pykeops

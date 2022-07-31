@@ -1,0 +1,61 @@
+SIMULATOR:
+  E: 5000.
+  n_particles: 30000
+  quality_multiplier: 1.25
+  yield_stress: 150.
+  ground_friction: 0.5
+  gravity: (0, -10, 0)
+  quality: 1
+  dtype: float32
+  lower_bound: 1.
+SHAPES:
+  - shape: box
+    init_pos: (0.5, 0.12, 0.5)
+    width: (0.2, 0.08, 0.08) # Computed based on the volume of the sphere 0.00143675
+    color: 100
+    n_particles: 5000
+PRIMITIVES:
+  - shape: Knife
+    h: (0.15, 0.15)
+    size: (0.025, 0.2, 0.06)
+    prot: (1.0, 0.0, 0.0, 0.58)
+    init_pos: (0.5, 0.3, 0.5)
+    color: (0.7568, 0.6039, 0.4196)
+    friction: 0.
+    action:
+      dim: 3
+      scale: (0.015, 0.015, 0.0)
+  - shape: Gripper
+    size: (0.015, 0.1, 0.06)
+    init_pos: (0.5, 0.10, 0.5)
+    init_gap: 0.18
+    minimal_gap: 0.08
+    maximal_gap: 0.2
+    #h: 0.10
+    init_rot: (0.707, 0.0, 0.707, 0.0)
+    color: (0.7568, 0.6039, 0.4196)
+    friction: 10.
+    action:
+      dim: 7
+      scale: (0.015, 0.015, 0.015, 0., 0., 0., 0.015) # previous is 0.01 + 0.015
+
+ENV:
+  cached_state_path: datasets/1215_cutrearrange
+  env_name: CutRearrange-v1
+
+RENDERER:
+  name: tina
+  image_res: (512, 512)
+
+  cam_center: (0.52, 0.3, 0.6)
+  cam_theta: 0.
+  cam_phi: -1.3
+  cam_radius: 0.53
+
+  #cam_center: (0.5, 0.3, 0.5)
+  #cam_theta: 1.57
+  #cam_phi: 0.
+  #cam_radius: 0.75
+
+  use_directional_light: True
+  light_direction: (0., 1., 1.)

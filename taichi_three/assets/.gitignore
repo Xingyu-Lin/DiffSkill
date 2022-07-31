@@ -1,0 +1,10 @@
+bunny.*
+lens.*
+*.npy
+*.vdb
+*.blend*
+hp_*
+*.hdr
+*.npz
+semisphere.*
+monkey_cornell.*

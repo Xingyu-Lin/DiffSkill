@@ -1,0 +1,86 @@
+/test_match
+/plb/baselines
+/scratch/
+chester
+*.ipynb_checkpoints*
+/datasets
+!PointFlow/datasets.py
+/runs/
+.idea
+.vscode
+out
+data
+/datasets/
+wandb
+carl_chester
+dyn_abs/carl_launchers
+tests/carl_tests
+debug
+prepare_local.sh
+prepare_1.0_carl.sh
+# Byte-compiled / optimized / DLL files
+__pycache__/
+taichi_three/tina/core/__pycache__/
+*.py[cod]
+*.gz
+*.pyc
+*.m
+*.zip
+
+PointFlow/.ipynb_checkpoints
+PointFlow/checkpoints
+PointFlow/runs
+PointFlow/metrics/structural_losses/*.so
+PointFlow/metrics/structural_losses/*.cu.o
+PointFlow/metrics/structural_losses/makefile
+PointFlow/PyMesh
+PointFlow/checkpoint
+PointFlow/torchdiffeq/
+PointFlow/demo/
+
+# C extensions
+*.so
+
+# Distribution / packaging
+bin/
+build/
+develop-eggs/
+dist/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+.tox/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+
+# Translations
+*.mo
+
+# Mr Developer
+.mr.developer.cfg
+.project
+.pydevproject
+
+# Rope
+.ropeproject
+
+# Django stuff:
+*.log
+*.pot
+
+# Sphinx documentation
+docs/_build/

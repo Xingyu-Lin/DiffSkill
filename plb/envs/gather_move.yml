@@ -1,0 +1,58 @@
+SIMULATOR:
+  E: 5000.
+  n_particles: 30000
+  yield_stress: 200.
+  ground_friction: 1.5
+  gravity: (0, -20, 0)
+  quality: 1
+SHAPES:
+  - shape: scatter
+    pos_min: (0.64, 0.02, 0.38)
+    pos_max: (0.76, 0.035, 0.62)
+    color: (0.7568, 0.6039, 0.4196)
+    seed: 0
+PRIMITIVES:
+  - shape: Gripper
+    size: (0.015, 0.09, 0.05) # To make rendering realistic. Actual floor is higher than the rendered
+    init_pos: (0.7, 0.06, 0.5)
+    init_rot: (0.5, 0.5, -0.5, 0.5)
+    init_gap: 0.4
+    minimal_gap: 0.05
+    color: (0.7568, 0.6039, 0.4196)
+    friction: 1.
+    action:
+      dim: 7
+      scale: (0.015, 0.0, 0.015, 0.0, 0.0, 0.1, 0.03)
+    collision_group: (0, 0, 1)
+  - shape: Box # Lifter
+    size: (0.07, 0.07, 0.02) # To make rendering realistic. Actual floor is higher than the rendered
+    init_pos: (0.7, 0.01, 0.5) # Was 0.7 on dim 3
+    init_rot: (0.707, 0.707, 0., 0.)
+    color: (0.7568, 0.6039, 0.4196)
+    friction: 50.
+    action:
+      dim: 6
+      scale: (0.01, 0.01, 0., 0.0, 0., 0.05)
+    collision_group: (0, 0, 1)
+  - shape: Box # Obstacle
+    size: (0.2, 0.28, 0.04) # To make rendering realistic. Actual floor is higher than the rendered
+    init_pos: (0.33, 0.05, 0.5)
+    init_rot: (0.707, 0.707, 0., 0.)
+    color: (0.5, 0.5, 0.5)
+    friction: 5. # Make this larger later
+    action:
+      dim: 0
+ENV:
+#  cached_state_path: datasets/0307_gathermove
+  cached_state_path: datasets/0202_gathermove
+
+RENDERER:
+  name: tina
+  cam_center: (0.55, 0., 0.5)
+  cam_theta: 0.
+  cam_phi: -0.85
+  cam_radius: 0.75
+  tina_img_res: 512
+  sdf_threshold: 0.4
+  use_directional_light: True
+  light_direction: (0., 1., 1.)

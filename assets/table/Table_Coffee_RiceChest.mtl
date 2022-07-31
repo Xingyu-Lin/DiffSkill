@@ -1,0 +1,10 @@
+#
+## Alias OBJ Material File
+# Exported from SketchUp, (c) 2000-2012 Trimble Navigation Limited
+
+newmtl _Wood_Cherry_
+Ka 0.000000 0.000000 0.000000
+Kd 0.588235 0.329412 0.156863
+Ks 0.330000 0.330000 0.330000
+map_Kd Table_Coffee_RiceChest/_Wood_Cherry_.jpg
+

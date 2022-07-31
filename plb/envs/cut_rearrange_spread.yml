@@ -1,0 +1,63 @@
+SIMULATOR:
+  E: 5000.
+  n_particles: 30000
+  quality_multiplier: 1.25
+  yield_stress: 150.
+  ground_friction: 0.5
+  gravity: (0, -20, 0)
+  quality: 1
+  dtype: float32
+  lower_bound: 1.
+SHAPES:
+  - shape: box
+    init_pos: (0.5, 0.12, 0.5)
+    width: (0.2, 0.08, 0.08) # Computed based on the volume of the sphere 0.00143675
+    color: 100
+    n_particles: 5000
+PRIMITIVES:
+  - shape: Knife
+    h: (0.15, 0.15)
+    size: (0.025, 0.2, 0.06)
+    prot: (1.0, 0.0, 0.0, 0.58)
+    init_pos: (0.8, 0.3, 0.1)
+    color: (0.7568, 0.6039, 0.4196)
+    friction: 0.
+    action:
+      dim: 3
+      scale: (0.015, 0.015, 0.0)
+  - shape: Box
+    size: (0.015, 0.05, 0.1)
+    init_pos: (0.5, 0.25, 0.1)
+    init_rot: (1., 0.0, 0.0, 0.0)
+    color: (0.7568, 0.6039, 0.4196)
+    friction: 10.
+    action:
+      dim: 6
+      scale: (0.010, 0.010, 0.010, 0., 0.025, 0.)
+  - shape: RollingPinExt
+    h: 0.15
+    r: 0.03
+    init_pos: (0.25, 0.25, 0.1) # was 0.2 on the second dimension
+    init_rot: (0.707, 0.707, 0., 0.)
+    color: (0.7568, 0.6039, 0.4196)
+    friction: 0.9
+    action:
+      dim: 6
+      scale: (0.7, 0.005, 0.005, 0.005, 0., 0.)
+    lower_bound: (0., 0.03, 0.)
+
+ENV:
+  cached_state_path: datasets/0609_cutrearrangespread
+  env_name: CutRearrangeSpread-v1
+
+RENDERER:
+  name: tina
+  image_res: (512, 512)
+
+  cam_center: (0.5, 0.3, 0.6)
+  cam_theta: 0.
+  cam_phi: -1.0
+  cam_radius: 0.7
+
+  use_directional_light: True
+  light_direction: (0., 1., 1.)

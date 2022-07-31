@@ -1,0 +1,60 @@
+SIMULATOR:
+  E: 5000.
+  n_particles: 10000
+  yield_stress: 200.
+  ground_friction: 1.5
+  gravity: (0, -20, 0)
+  quality: 1
+SHAPES:
+  - shape: sphere
+    init_pos: (0.65, 0.08, 0.5)
+    radius: (0.05)
+    color: 100
+#  - shape: sphere
+#    init_pos: (0.5, 0.23576, 0.5)
+#    width: (0.2, 0.03575, 0.2) # Computed based on the volume of the sphere 0.00143675
+#    color: 100
+
+PRIMITIVES:
+  - shape: RollingPinExt
+    h: 0.3
+    r: 0.03
+    init_pos: (0.3, 0.25, 0.5) # was 0.2 on the second dimension
+    init_rot: (0.707, 0.707, 0., 0.)
+    color: (0.7568, 0.6039, 0.4196)
+    friction: 0.9
+    action:
+      dim: 6
+      scale: (0.7, 0.005, 0.005, 0.005, 0., 0.)
+    lower_bound: (0., 0.16, 0.)
+  - shape: Box
+    size: (0.1, 0.1, 0.02) # To make rendering realistilc. Actual floor is higher than the rendered
+    init_pos: (0.65, 0.02, 0.5)
+    init_rot: (0.707, 0.707, 0., 0.)
+    color: (0.7568, 0.6039, 0.4196)
+    friction: 50.
+    action:
+      dim: 6
+      scale: (0.01, 0.01, 0., 0.0, 0., 0.05)
+    collision_group: (0, 0, 1)
+#    lower_bound: (.6, 0., 0.) # 0.15 is the height of the obstacle
+  - shape: Box # Obstacle
+    size: (0.2, 0.28, 0.07) # To make rendering realistic. Actual floor is higher than the rendered
+    init_pos: (0.3, 0.05, 0.5)
+    init_rot: (0.707, 0.707, 0., 0.)
+    color: (0.5, 0.5, 0.5)
+    friction: 5. # Make this larger later
+    action:
+      dim: 0
+ENV:
+  cached_state_path: datasets/1116_Lift
+
+RENDERER:
+  name: tina
+  tina_img_res: 512
+  cam_center: (0.55, 0.07, 0.5)
+  cam_theta: 0.
+  cam_phi: -0.5
+  cam_radius: 0.75
+  use_directional_light: True
+  light_direction: (0., 1., 1.)

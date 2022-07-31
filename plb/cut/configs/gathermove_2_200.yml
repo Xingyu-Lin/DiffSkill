@@ -1,0 +1,54 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: hza-gathermove-2-200
+  namespace: ucsd-haosulab
+  labels:
+    user: hza
+spec:
+  ttlSecondsAfterFinished: 86400  # Wait one day to delete completed jobs
+  template:
+    spec:
+      containers:
+        - name: gpu-container
+          image: gitlab-registry.nrp-nautilus.io/hzaskywalker/docker #hzaskywalker/kissshot
+          # imagePullPolicy: Always
+          command:
+            - "bash"
+          args: [ "-c", "export PATH=/root/anaconda3/bin:$PATH;  source ~/anaconda3/etc/profile.d/conda.sh; source activate; cd /root/PlasticineLab/;cp /cephfs/hza/gathermove_2_200.py rl/;python3 rl/gathermove_2_200.py --no-debug" ]
+          resources:
+            requests:
+              cpu: "8"
+              memory: "64Gi"
+              nvidia.com/gpu: 4
+            limits:
+              cpu: "8"
+              memory: "64Gi"
+              nvidia.com/gpu: 4
+          volumeMounts:
+            - name: cephfs
+              mountPath: /cephfs
+            - name: dshm
+              mountPath: /dev/shm
+      volumes:
+        - name: dshm  # shared memory
+          emptyDir:
+            medium: Memory
+        - name: cephfs
+          persistentVolumeClaim:
+            claimName: haosulab-cephfs
+      restartPolicy: Never
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: nautilus.io/group
+                    operator: In
+                    values:
+                      - haosu
+                  - key: gpu-type
+                    operator: In
+                    values:
+                      - 1080Ti
+                      - 2080Ti
