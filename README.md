@@ -10,6 +10,14 @@
 5. Download and unzip initial and target configurations of environmetns from [[Google Drive link for datasets (2G)]](https://drive.google.com/file/d/11XZw-p2FX-yvoHMnc_yNO5x7iiLxwlwB/view?usp=sharing)
 
 ### Environments
+![envs](imgs/pull.png)
+
+There are 3 environments for evaluation. 
+
+* LiftSpread
+* GatherMove
+* CutRearrange
+
 To test the environment, run `python scripts/random_env.py --env_name {env_name}`, where `env_name` can be from {LiftSpread, GatherMove, CutRearrange}.
 
 ## Cite
