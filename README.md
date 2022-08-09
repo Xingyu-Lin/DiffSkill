@@ -19,7 +19,7 @@ There are 3 environments for evaluation.
 around its center and open or close the gripper.
 * **CutRearrange**:  This is a three-step task. Given an initial pile of dough, the agent needs to first cut the dough in half using a knife. Inspired by the recent cutting simulation (Heiden et al., 2021), we model the knife using a thin surface as the body and a prism as the blade. Next, the agent needs to use the gripper to transport each piece of the cut dough to target locations.
 
-To test the environment, run `python scripts/random_env.py --env_name {env_name}`, where `env_name` can be from {LiftSpread, GatherMove, CutRearrange}.
+To test the environment, run `python scripts/random_env.py --env_name {env_name}`, where `env_name` can be from {LiftSpread-v1, GatherMove-v1, CutRearrange-v1}.
 
 ## Cite
 If you find this codebase useful in your research, please consider citing:
