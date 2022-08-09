@@ -2,7 +2,7 @@
 07/30 Release three diffskill environments LiftSpread, GatherMove, CutRearrange. Code on algorithms will be released very soon!
 
 ### Prerequsite
-1. Install conda environments according to `environment.yml`, and then Run `conda activate plb`.
+1. Install conda environments according to `environment.yml`, and then run `conda activate plb`.
 2. Install [torch (1.9.0) with cudatoolkit (10.2)](https://pytorch.org/get-started/previous-versions/)
 3. Install [pykeops (1.5)](https://www.kernel-operations.io/keops/python/installation.html); make sure version==1.5
 3. Install [geomloss](https://www.kernel-operations.io/geomloss/api/install.html)
