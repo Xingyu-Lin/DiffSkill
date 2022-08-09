@@ -3,9 +3,9 @@
 
 ### Prerequsite
 1. Install conda environments according to `environment.yml`, and then Run `conda activate plb`.
-2. Install [torch (1.9.0) with cudatoolkit (10.2)](https://pytorch.org/get-started/previous-versions/)
-3. Install [pykeops (1.5)](https://www.kernel-operations.io/keops/python/installation.html); make sure version==1.5
-3. Install [geomloss](https://www.kernel-operations.io/geomloss/api/install.html)
+2. Install [torch (1.9.0) with cudatoolkit (10.2)](https://pytorch.org/get-started/previous-versions/).
+3. Install [pykeops (1.5)](https://www.kernel-operations.io/keops/python/installation.html). Make sure version==1.5
+3. Install [geomloss](https://www.kernel-operations.io/geomloss/api/install.html).
 4. Run `./prepare.sh`
 5. Download and unzip initial and target configurations of environmetns from [[Google Drive link for datasets (2G)]](https://drive.google.com/file/d/11XZw-p2FX-yvoHMnc_yNO5x7iiLxwlwB/view?usp=sharing)
 
