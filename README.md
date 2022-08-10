@@ -12,7 +12,7 @@
 ### Environments
 To test the environment, run `python scripts/random_env.py --env_name {env_name}`, where `env_name` can be from {LiftSpread-v1, GatherMove-v1, CutRearrange-v1}.
 
-We curretnly include three tasks, as visualized below:
+We currently include three tasks, as visualized below:
 
 | LiftSpread  | GatherMove | CutRearrange |
 | :---: | :---: | :---: |
