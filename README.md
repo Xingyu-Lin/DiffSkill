@@ -13,14 +13,11 @@
 <figure>
 <img src="imgs/pull.jpg" width="600">
 </figure>
-<figure>
-<img src="imgs/diffskill_execute_0_plot.gif" width="200">
-<img src="imgs/diffskill_execute_1_plot.gif" width="200">
-<img src="imgs/diffskill_cut_execute_2_plot.gif" width="200">
-<figcaption align = "center"><b>Tasks (from left to right): LIftSpread, GatherMove, CutRearrange. The red line shows the normalized performance, while the green line shows the success threshold of the task.</b></figcaption>
-</figure>
 
-
+| LiftSpread  | GatherMove | CutRearrange |
+| :---: | :---: | :---: |
+| <img src="imgs/diffskill_execute_0_plot.gif" width="200">  | <img src="imgs/diffskill_execute_1_plot.gif" width="200">  | <img src="imgs/diffskill_cut_execute_2_plot.gif" width="200">  |
+<figcaption align = "center"><b>The red line shows the normalized performance, while the green line shows the success threshold of the task.</b></figcaption>
 
 
 There are 3 environments for evaluation. 
