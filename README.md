@@ -17,10 +17,10 @@
 | LiftSpread  | GatherMove | CutRearrange |
 | :---: | :---: | :---: |
 | <img src="imgs/diffskill_execute_0_plot.gif" width="200">  | <img src="imgs/diffskill_execute_1_plot.gif" width="200">  | <img src="imgs/diffskill_cut_execute_2_plot.gif" width="200">  |
-<figcaption align = "center"><b>The red line shows the normalized performance, while the green line shows the success threshold of the task.</b></figcaption>
 
 
-There are 3 environments for evaluation. 
+
+The red line shows the normalized performance, while the green line shows the success threshold of the task. There are 3 environments for evaluation:
 
 * **LiftSpread**: The agent needs to first use a spatula (modeled as a thin surface) to lift a dough onto the cutting board and then adopt a rolling pin to roll over the dough to flatten it. The rolling pin is simulated as a 3-Dof capsule that can rotate along the long axis and the vertical axis and translate along the vertical axis to press the dough.
 * **GatherMove**: Initially, residual of dough is scattered over the table. First, the agent needs to gather the dough with an extended parallel gripper and place it on top of a spatula. Then the agent needs to use the spatula to transport the dough onto the cutting board. The spatula can translate and rotate along the vertical plane. The gripper can translate along the horizontal plane, rotate
