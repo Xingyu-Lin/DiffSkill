@@ -11,7 +11,7 @@
 
 ### Environments
 <figure>
-<img src="imgs/pull.jpg" width="600">
+<img src="imgs/pull.jpg">
 </figure>
 
 | LiftSpread  | GatherMove | CutRearrange |
