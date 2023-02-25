@@ -1,5 +1,7 @@
 # DiffSkill
-07/30 Release three diffskill environments LiftSpread, GatherMove, CutRearrange. Code on algorithms will be released very soon!
+07/30/2022 Release three diffskill environments LiftSpread, GatherMove, CutRearrange.
+
+02/24/2023 DiffSkill algorithm is released in a separate repository: [https://github.com/Xingyu-Lin/PASTA](https://github.com/Xingyu-Lin/PASTA)
 
 ### Prerequsite
 1. Install conda environments according to `environment.yml`, and then run `conda activate plb`.
