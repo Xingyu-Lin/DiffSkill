@@ -142,7 +142,9 @@ def lazyguard():
             if hook_getattr:
                 globals['__getattr__'] = getattr_cb
             globals['__lazyreload__'] = reload_cb
-            return False
+            print('Lazyguard disabled for ', globals['__package__'])
+            print('This may cause slow import of tina. Consider setting it to False if you can make it work')
+            return True
 
     class DisableLazyguard:
         def __bool__(self):
