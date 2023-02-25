@@ -21,6 +21,15 @@ import torch
 device = 'cuda'
 from plb.engine.primitive.primitives import RollingPinExt, Gripper
 
+def load_target_pcs(cached_state_path):
+    target_mass_grids = []
+    import glob
+    from natsort import natsorted
+    target_paths = natsorted(glob.glob(os.path.join(cached_state_path, 'target/target_[0-9]*.npy')))
+    for path in target_paths:
+        target_mass_grid = np.load(path)
+        target_mass_grids.append(target_mass_grid)
+    return np.array(target_mass_grids)
 
 class MultitaskPlasticineEnv(gym.Env):
     def __init__(self, cfg_path, version=None, nn=False, loss=True, return_dist=False, generating_cached_state=False):
@@ -37,7 +46,6 @@ class MultitaskPlasticineEnv(gym.Env):
             self.num_inits = len(glob.glob(osp.join(self.cfg.cached_state_path, 'init/state_*.xz')))
             self.num_targets = len(glob.glob(osp.join(self.cfg.cached_state_path, 'target/target_[0-9]*.npy')))
             self._load_target_imgs()
-            from core.diffskill.utils import load_target_pcs
             self.target_pcs = load_target_pcs(self.cfg.cached_state_path)
 
         self.taichi_env.set_copy(True)
@@ -211,16 +219,6 @@ class MultitaskPlasticineEnv(gym.Env):
 
     def set_particles_to_goal(self, target_v):
         if not hasattr(self, 'full_target_pcs'):
-            def load_target_pcs(cached_state_path):
-                target_mass_grids = []
-                import glob
-                from natsort import natsorted
-                target_paths = natsorted(glob.glob(os.path.join(cached_state_path, 'target/target_[0-9]*.npy')))
-                for path in target_paths:
-                    target_mass_grid = np.load(path)
-                    target_mass_grids.append(target_mass_grid)
-                return np.array(target_mass_grids)
-
             self.full_target_pcs = load_target_pcs(self.taichi_env.cfg.ENV.cached_state_path)
         state = self.get_state()
         state['state'][0] = self.full_target_pcs[target_v]
